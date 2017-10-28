@@ -2,7 +2,7 @@ body, html{
 	height: 100%;
 	width: 100%;
 	font-family: 'Raleway', sans-serif !important;
-	position: fixed;
+	position: relative;
 }
 
 .left{
@@ -20,6 +20,12 @@ body, html{
       display: block;
       margin-right: auto;
       margin-left: auto;
+}
+
+/*buttons=================================*/
+#default-btn{
+	background-color: orange !important;
+	width: 150px;
 }
 
 /*navbar===================================*/
@@ -51,30 +57,31 @@ body, html{
 
 /*sidebar=================================*/
  #sidebar{
- 	position: relative;
- 	height: 100vh !important;
+ 	padding-top: 50px;
+/* 	padding-left: 50px;
+*/ 	height: 100% !important;
  	background-color: #fff;
- 	padding-left: 20px;
- 	padding-right: 20px;
+ 	margin-left: auto;
+ 	margin-right: auto;
  	border-right: thick solid orange;
+ 	overflow: hidden;
+ 	z-index: 5;
+ 	position: fixed;
  }
 
 #propic{
-	height: 124px;
-	width: 124px;
 	background-color: #555;
 }
 
 
-}
 
 /*content================================*/
 
-.content{
+#viewbox{
 	position: relative;
 	overflow: auto;
 	background-color: #fff;
-	padding-top: 200px;
+	padding-top: 50px;
 }
 
 .media{
