@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2017 at 06:17 PM
+-- Generation Time: Oct 27, 2017 at 06:09 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.2
 
@@ -139,13 +139,118 @@ CREATE TABLE `discussion` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `forums`
+-- Table structure for table `fanswer`
 --
 
-CREATE TABLE `forums` (
-  `forum_message_id` int(11) NOT NULL,
-  `forum_message` text
+CREATE TABLE `fanswer` (
+  `question_id` int(4) NOT NULL DEFAULT '0',
+  `a_id` int(4) NOT NULL DEFAULT '0',
+  `a_name` varchar(65) NOT NULL DEFAULT '',
+  `a_answer` longtext NOT NULL,
+  `a_datetime` varchar(25) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `fanswer`
+--
+
+INSERT INTO `fanswer` (`question_id`, `a_id`, `a_name`, `a_answer`, `a_datetime`) VALUES
+(2, 1, 'sizwe', 'reply', '27/10/17 13:56:02'),
+(2, 2, 'david', 'second reply', '27/10/17 13:57:28'),
+(3, 1, 'sizwe', 'first reply', '27/10/17 14:02:26'),
+(3, 2, 'sizwe', 'first reply', '27/10/17 14:03:13'),
+(15, 1, 'sizwe', 'first comment', '27/10/17 15:18:06'),
+(15, 2, 'sizwe', 'second comment', '27/10/17 15:20:24'),
+(4, 1, 'sizwe', 'this thing is so hard', '27/10/17 15:21:48'),
+(17, 1, 'sizwe', 'first comment', '27/10/17 15:25:50'),
+(4, 2, 'siya', 'you can say that again', '27/10/17 15:56:46'),
+(14, 1, 'sizwe', 'first comment', '27/10/17 16:02:26'),
+(4, 3, 'dave', 'bruh ?', '27/10/17 16:12:31');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fcategory`
+--
+
+CREATE TABLE `fcategory` (
+  `id` int(11) NOT NULL,
+  `category` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `detail` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `datetime` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `fcategory`
+--
+
+INSERT INTO `fcategory` (`id`, `category`, `name`, `detail`, `email`, `datetime`) VALUES
+(1, 'Life', 'sizwe', 'Psychology', 'sizwe@gmail.com', '27/10/17 02:14:51'),
+(2, 'bio', 'sizwe', 'animals', 'sizwe@gmail.com', '27/10/17 02:15:46'),
+(4, 'fiction', 'sizwe', 'harry potter', 'sizwe@gmail.com', '27/10/17 02:17:36'),
+(5, 'science', 'sizwe', 'natural science', 'sizwe@gmail.com', '27/10/17 02:18:29');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fcomment`
+--
+
+CREATE TABLE `fcomment` (
+  `id` int(11) NOT NULL,
+  `postid` int(11) NOT NULL,
+  `comment` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `datetime` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `fcomment`
+--
+
+INSERT INTO `fcomment` (`id`, `postid`, `comment`, `name`, `datetime`) VALUES
+(1, 4, 'first comment', 'sizwe', '27/10/17 03:58:29'),
+(2, 4, 'second comment', 'siya', '27/10/17 04:01:19'),
+(3, 14, 'first reply', 'sizwe', '27/10/17 04:02:51'),
+(4, 15, 'first reply', 'sizwe', '27/10/17 04:11:36'),
+(5, 3, 'my reply to your reply', 'sizwe', '27/10/17 04:13:48'),
+(6, 15, 'second reply', 'sizwe', '27/10/17 06:07:45');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fquestions`
+--
+
+CREATE TABLE `fquestions` (
+  `id` int(4) NOT NULL,
+  `categoryid` int(11) NOT NULL,
+  `topic` varchar(255) NOT NULL DEFAULT '',
+  `detail` longtext NOT NULL,
+  `name` varchar(65) NOT NULL DEFAULT '',
+  `email` varchar(65) NOT NULL DEFAULT '',
+  `datetime` varchar(25) NOT NULL DEFAULT '',
+  `view` int(4) NOT NULL DEFAULT '0',
+  `reply` int(4) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `fquestions`
+--
+
+INSERT INTO `fquestions` (`id`, `categoryid`, `topic`, `detail`, `name`, `email`, `datetime`, `view`, `reply`) VALUES
+(2, 1, 'astronomy', 'stars', 'sizwe', 'sizwe@gmail.com', '27/10/17 01:51:21', 38, 2),
+(3, 2, 'ux', 'user design', 'sizwe', 'sizwe@gmail.com', '27/10/17 01:54:44', 7, 2),
+(4, 4, 'Math', 'Algo', 'sizwe', 'sizwe@gmail.com', '27/10/17 02:13:21', 12, 3),
+(5, 0, 'Accounting', 'Auditing', 'Sizwe', 'sizwe@gmail.com', '27/10/17 02:47:29', 0, 0),
+(9, 0, 'Accounting', 'Auditing', 'Sizwe', 'sizwe@gmail.com', '27/10/17 02:48:45', 0, 0),
+(14, 4, 'trig', 'function', 'sizwe', 'sizwe@gmail.com', '27/10/17 02:58:45', 4, 1),
+(15, 5, 'Atoms', 'Particles', 'sizwe', 'sizwe@gmail.com', '27/10/17 03:15:44', 10, 2),
+(16, 5, 'Einstein', 'Relativity', 'sizwe', 'sizwe@gmail.com', '27/10/17 03:21:08', 5, 0),
+(18, 5, 'Boson', 'Atomic whatever', 'sizwe', 'sizwe@gmail.com', '27/10/17 04:03:42', 4, 0),
+(21, 4, 'Harry Potter', 'New Series', 'sizwe', 'sizwe@gmail.com', '27/10/17 04:18:38', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -194,8 +299,36 @@ CREATE TABLE `logs` (
 --
 
 INSERT INTO `logs` (`id`, `username`, `msg`, `to`) VALUES
-(1, 'sizwe', 'hello', ''),
-(2, 'siya', 'hey bro', '');
+(1, 'sizwe', 'hello', 'siya'),
+(2, 'siya', 'hey bro', 'sizwe'),
+(3, 'sizwe', 'hello', 'siya'),
+(4, 'sizwe', 'hello', 'siya'),
+(5, 'sizwe', 'hello', 'siya'),
+(6, 'sizwe', 'hello', 'siya'),
+(7, 'sizwe', 'hello', 'siya'),
+(8, 'sizwe', 'hello', 'siya'),
+(9, 'sizwe', 'hello', 'siya'),
+(10, 'sizwe', 'hello', 'siya'),
+(11, 'sizwe', 'hello', 'siya'),
+(12, 'sizwe', 'hello', 'siya'),
+(13, 'sizwe', 'hello', 'siya'),
+(14, 'sizwe', 'jjj', 'siya'),
+(15, 'sizwe', 'ft', 'siya'),
+(16, 'sizwe', 'ft', 'siya'),
+(17, 'sizwe', 'ft', 'siya'),
+(18, 'sizwe', 'ft', 'siya'),
+(19, 'sizwe', 'ft', 'siya'),
+(20, 'sizwe', 'ft', 'siya'),
+(21, 'sizwe', 'ft', 'siya'),
+(22, 'sizwe', 'ft', 'siya'),
+(23, 'sizwe', 'ft', 'siya'),
+(24, 'sizwe', 'ft', 'siya'),
+(25, 'sizwe', 'ft', 'siya'),
+(26, 'sizwe', 'ft', 'siya'),
+(27, 'sizwe', 'ft', 'siya'),
+(28, 'sizwe', 'rt', 'siya'),
+(29, 'sizwe', 'siya', 'siya'),
+(30, 'siya', 'sizwe', 'sizwe');
 
 -- --------------------------------------------------------
 
@@ -215,6 +348,20 @@ CREATE TABLE `rating` (
 
 INSERT INTO `rating` (`id`, `php`, `username`) VALUES
 (1, 4, 'sizwe');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reply`
+--
+
+CREATE TABLE `reply` (
+  `id` int(11) NOT NULL,
+  `postid` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `reply` varchar(255) NOT NULL,
+  `datetime` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -297,10 +444,28 @@ ALTER TABLE `discussion`
   ADD KEY `message_id` (`message_id`);
 
 --
--- Indexes for table `forums`
+-- Indexes for table `fanswer`
 --
-ALTER TABLE `forums`
-  ADD PRIMARY KEY (`forum_message_id`);
+ALTER TABLE `fanswer`
+  ADD KEY `a_id` (`a_id`);
+
+--
+-- Indexes for table `fcategory`
+--
+ALTER TABLE `fcategory`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `fcomment`
+--
+ALTER TABLE `fcomment`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `fquestions`
+--
+ALTER TABLE `fquestions`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `images`
@@ -318,6 +483,12 @@ ALTER TABLE `logs`
 -- Indexes for table `rating`
 --
 ALTER TABLE `rating`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `reply`
+--
+ALTER TABLE `reply`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -358,10 +529,20 @@ ALTER TABLE `connections`
 ALTER TABLE `discussion`
   MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `forums`
+-- AUTO_INCREMENT for table `fcategory`
 --
-ALTER TABLE `forums`
-  MODIFY `forum_message_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `fcategory`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `fcomment`
+--
+ALTER TABLE `fcomment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `fquestions`
+--
+ALTER TABLE `fquestions`
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `images`
 --
@@ -371,12 +552,17 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `reply`
+--
+ALTER TABLE `reply`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `reviews`
 --
