@@ -25,8 +25,10 @@ body, html{
 /*buttons=================================*/
 #default-btn{
 	background-color: orange !important;
+	border-color: orange !important;
 	width: 150px;
 }
+
 
 /*navbar===================================*/
 .navbar{
@@ -90,6 +92,23 @@ body, html{
 	width: 100%;
 
 	border-bottom: thick solid #fff;
+}
+
+#usr-pic{
+
+	background-color: #555;
+	background-image: url("../media/icn/avatar.png");
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-position: 0% 0%;
+	background-clip: border-box;
+	background-origin: padding-box;
+	background-size: auto auto;
+	width: 120px;
+	height: 120px;
+	margin-left: auto;
+	margin-right: auto;
+
 }
 /*hero============================*/
 .jumbotron{
