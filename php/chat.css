@@ -1,0 +1,97 @@
+html,body{
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  }
+
+iframe{
+  background-color: #FFFBD0;
+}
+
+#connections{
+  z-index: 15;
+  max-height:90%
+
+}
+
+.input_group_wrapper{
+
+}
+
+
+
+
+.container{
+  background-color: orange;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  line-height:0;
+
+
+
+
+}
+.btn{
+
+
+}
+.send{
+  position: relative;
+  z-index: 10;
+  margin-top: 10px;
+
+}
+
+#chatlogs{
+  max-height:90%;
+  overflow-y:scroll;
+  margin-top: 30px;
+  border:1px solid #ccc;
+  z-index: 2;
+}
+       #chatlogs a{
+         font-weight:bold;
+       }
+       #chatlogs p{
+         width:90%
+       }
+       .loading{text-align:right;margin-top:-100px}
+.chat-window {
+  width: auto;
+  height: auto;
+  position: relative;
+  background-color: #FFFBD0;
+  z-index: 2;
+  border-radius: 5px;
+  overflow-y: scroll;
+}
+
+.chat_input{
+  display:table;
+     vertical-align:middle;
+       margin: auto;
+}
+.Banner{
+text
+}
+
+.users{
+  float: left;
+}
+
+#connections{
+max-height:90%;
+float: right;
+z-index: 30;
+margin-top: 30px;
+border-radius: 5px;
+}
+
+#profile{
+  float: left;
+  max-height:90%;
+  margin-top: 40px;
+  border-radius: 5px;
+}
