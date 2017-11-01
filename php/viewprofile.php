@@ -17,14 +17,16 @@ if (isset($user_profile_id)) {
 	  	$view_message = "Viewing ".$_SESSION['view_fname']." ".$_SESSION['view_lname']."'s profile.";
 		$_SESSION['view_email'] = $view['client_email'];
 		$_SESSION['view_highschool'] =  $view['client_high_school'];
-		$_SESSION['view_tertiary'] = $view['client_tertiary_school'];
+		$_SESSION['view_jobtitle'] = $view['client_jobtitle'];
 		$_SESSION['view_institution'] = $view['client_institution'];
 		$_SESSION['view_location'] = $view['client_location'];
 		$_SESSION['view_degree'] = $view['client_degree'];
+		$_SESSION['view_bio'] = $view['client_bio'];
 		$_SESSION['view_occupation'] = $view['client_occupation'];
 		$_SESSION['view_cellno'] = $view['client_cell_no'];
 		$_SESSION['view_rating'] = $view['client_rating'];
 		$_SESSION['view_tokens'] = $view['client_tokens'];
+		$_SESSION['view_company'] = $view['client_company_name'];
 		}
 	}
 }
@@ -69,11 +71,13 @@ if (isset($user_profile_id)) {
 		<br />Last Name         :  <?= $_SESSION['view_lname']; ?>
 		<br />Email Address     :  <?= $_SESSION['view_email']; ?>
 		<br />High School       : <?= $_SESSION['view_highschool']; ?>
-		<br />Tertiary Education: <?= $_SESSION['view_tertiary']; ?>
+		<br />Job Title			: <?= $_SESSION['view_jobtitle']; ?>
 		<br />Institution       :  <?= $_SESSION['view_institution']; ?>
 		<br />Degree            :  <?= $_SESSION['view_degree']; ?>
+		<br />Bio	            :  <?= $_SESSION['view_bio']; ?>
 		<br />Occupation        :  <?= $_SESSION['view_occupation']; ?>
 		<br />Cellphone Number  :  <?= $_SESSION['view_cellno']; ?>
+		<br />Company name		:  <?= S_SESSION['view_company']; ?>
 
 		<br />Tokens:  <?= $_SESSION['view_tokens']; ?>
 		<br /><br />

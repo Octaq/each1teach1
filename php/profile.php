@@ -1,5 +1,6 @@
 <?php
 session_start();
+require 'database2.php';
 if (isset($_SESSION['loggedin'])) {
 	$message = $_SESSION['loggedin'];
 }
@@ -47,15 +48,17 @@ elseif ( isset($_SESSION['success']) ){
 
 		<h3><?= $message; ?></h3>
 		<br />Rating            :  <?= $_SESSION['rating']; ?>
-		<br />First Name        : <?= $_SESSION['first_name']; ?>
+		<br />First Name        :  <?= $_SESSION['first_name']; ?>
 		<br />Last Name         :  <?= $_SESSION['last_name']; ?>
 		<br />Email Address     :  <?= $_SESSION['email']; ?>
-		<br />High School       : <?= $_SESSION['high_school']; ?>
-		<br />Tertiary Education: <?= $_SESSION['tertiary']; ?>
+		<br />High School       :  <?= $_SESSION['high_school']; ?>
+		<br />Job Title			:  <?= $_SESSION['jobtitle']; ?>
 		<br />Institution       :  <?= $_SESSION['institution']; ?>
 		<br />Degree            :  <?= $_SESSION['degree']; ?>
+		<br />Bio	            :  <?= $_SESSION['bio']; ?>
 		<br />Occupation        :  <?= $_SESSION['occupation']; ?>
 		<br />Cellphone Number  :  <?= $_SESSION['cellno']; ?>
+		<br />Company Name  	:  <?= $_SESSION['company']; ?>	
 
 		<br />Tokens:  <?= $_SESSION['tokens']; ?>
 		<br /><br />
