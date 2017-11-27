@@ -1,1 +1,0 @@
-# each1teach1
